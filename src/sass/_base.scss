@@ -1,0 +1,13 @@
+* {
+  @include reset() {
+    direction: rtl;
+    text-align: right;
+    color: map-get($colors, "text");
+    font-family: "vazirmatn";
+  }
+}
+
+body {
+  background-color: map-get($colors, "main");
+  @include flex();
+}

@@ -1,0 +1,29 @@
+body {
+  --div-number: 13;
+  --first-fibo: calc(100vw / var(--div-number));
+}
+
+@include media("xs", "md") {
+  body {
+    --div-number: 8;
+  }
+}
+
+@for $n from 1 to 6 {
+  .fibo-#{$n}-- {
+    &sq {
+      width: calc($n * var(--first-fibo));
+      height: calc($n * var(--first-fibo));
+    }
+
+    &ci {
+      @extend .fibo-#{$n}--sq;
+      border-radius: 100%;
+    }
+
+    &fo {
+      font-size: calc($n * var(--first-fibo));
+    }
+  }
+}
+

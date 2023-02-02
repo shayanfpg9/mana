@@ -1,0 +1,180 @@
+.header {
+  width: 90vw;
+  min-height: calc(var(--first-fibo) + 2vh);
+  padding: 0 1vh;
+  position: fixed;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: map-get($colors, "second");
+  border-radius: 5rem;
+  box-shadow: 0px 5px 15px rgba(map-get($colors, "second"), 0.8);
+
+  @include flex(flex-start);
+  @include media("xl") {
+    top: calc(1vh * var(--first-fibo));
+    transform: translate(-50%, -50%);
+  }
+
+  &,
+  & > * {
+    transition: width 0.5s linear, height 0.5s linear;
+  }
+
+  &__title {
+    margin-right: 2vh;
+    transition: font-size 0.5s linear;
+
+    @include media("xs", "sm") {
+      font-size: 1rem;
+    }
+
+    @include media("sm", "md") {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__menu-item > a {
+    position: relative;
+    text-align: center;
+
+    &:hover {
+      &::after {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      display: block;
+
+      width: 100%;
+      height: 3px;
+      border-radius: 1rem;
+      background-color: map-get($colors, "text");
+      opacity: 0;
+
+      transition: all 0.5s ease;
+    }
+
+    & > i.bi {
+      margin-left: 0.5rem;
+    }
+  }
+
+  @include media("xl") {
+    &__menu {
+      list-style-type: none;
+      padding-right: 2vh;
+      width: 50%;
+
+      position: absolute;
+      left: 50%;
+      transform: translateX(-75%);
+
+      @include flex(space-between);
+
+      &-icon {
+        display: none;
+      }
+
+      & > * {
+        float: left;
+        height: auto;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @include media("xs", "xl") {
+    justify-content: space-between;
+
+    &__menu {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+
+      list-style-type: none;
+      height: 99vh;
+      z-index: 10;
+      border: {
+        bottom-right-radius: 2rem;
+        top-right-radius: 2rem;
+      }
+      background-color: rgba(map-get($colors, "second"), 0.9);
+
+      transition: left 0.5s ease-in-out, width 0.5s ease-in-out;
+      left: 0;
+
+      @include flex();
+
+      @include media("md", "xl") {
+        --menu-width: calc(5 * var(--first-fibo) + 2rem);
+        box-shadow: 5px 0px 15px rgba(map-get($colors, "second"), 0.8);
+      }
+
+      @include media("xs", "md") {
+        --menu-width: 99vw;
+      }
+
+      width: var(--menu-width);
+
+      & > * {
+        min-width: 100%;
+        text-align: center;
+        height: auto;
+        font-size: 2rem;
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      &-icon {
+        all: unset;
+        position: relative;
+        cursor: pointer;
+        z-index: 11;
+        transition: left 0.5s ease-in-out;
+        left: 0;
+
+        &::before {
+          font-size: var(--first-fibo);
+          color: map-get($colors, "main");
+        }
+
+        &.bi-x-lg {
+          position: fixed;
+          top: 3vh;
+          left: calc(5vw + 1vh);
+        }
+      }
+    }
+  }
+
+  &--top {
+    width: 100vw;
+    height: var(--first-fibo);
+    background-color: rgba(map-get($colors, "second"), 0.5);
+    border: {
+      bottom-right-radius: 2rem;
+      bottom-left-radius: 2rem;
+    }
+    transition: opacity 0.5s linear;
+
+    display: block;
+    opacity: 0;
+
+    @include media("xl") {
+      opacity: 1;
+    }
+  }
+}
