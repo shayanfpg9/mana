@@ -32,6 +32,10 @@
     @include media("sm", "md") {
       font-size: 1.5rem;
     }
+
+    @include media("xl") {
+      font-size: calc(var(--first-fibo) / 3);
+    }
   }
 
   &__menu-item > a {

@@ -4,6 +4,10 @@
     text-align: right;
     color: map-get($colors, "text");
     font-family: "vazirmatn";
+
+    @include media("xxl") {
+      font-size: calc(var(--first-fibo) / 5);
+    }
   }
 }
 
