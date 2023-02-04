@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GetBreak } from "../js/functions.js";
+import { GetBreak } from "../../js/functions.js";
 import Menu from "./Menu.jsx";
 
 export default function Header() {
