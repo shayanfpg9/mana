@@ -3,4 +3,17 @@ const GetBreak = (point) => {
   return breakpoints[point];
 };
 
-export { GetBreak };
+const $ = (
+  qr,
+  filter = (result) => {
+    return result;
+  }
+) => {
+  const select = document.querySelectorAll(qr),
+    result =
+      select.length > 0 ? (select.length == 1 ? select[0] : select) : undefined;
+
+  if (typeof filter == "function") return filter(result);
+};
+
+export { GetBreak, $ };
