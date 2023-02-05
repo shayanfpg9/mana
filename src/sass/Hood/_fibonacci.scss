@@ -20,10 +20,6 @@ body {
       @extend .fibo-#{$n}--sq;
       border-radius: 100%;
     }
-
-    &fo {
-      font-size: calc($n * var(--first-fibo));
-    }
   }
 }
 
