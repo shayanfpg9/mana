@@ -48,7 +48,7 @@
     &link-samcode {
       $bgc: map-get($colors, "main");
 
-      text-decoration: underline 1.9px $bgc;
+      text-decoration: none;
       background-image: linear-gradient(
         0deg,
         $bgc,
