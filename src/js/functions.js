@@ -13,7 +13,7 @@ const $ = (
     result =
       select.length > 0 ? (select.length == 1 ? select[0] : select) : undefined;
 
-  if (typeof filter == "function") return filter(result);
+  if (typeof filter === "function") return filter(result);
 };
 
 export { GetBreak, $ };
