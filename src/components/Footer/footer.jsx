@@ -1,4 +1,5 @@
 import { $ } from "../../js/functions";
+import Contact from "./Contact";
 
 export default function Footer() {
   const heartClick = ({ target }) => {
@@ -21,6 +22,8 @@ export default function Footer() {
       <a className="footer__link-samcode" href="https://github.com/sampadycode"> SampadyCode </a>
       <i onClick={heartClick} className="bi bi-heart footer__icon--heart"></i>
       <i className="bi bi-cup-hot-fill footer__icon--cup"></i>
+
+      <Contact link="" />
     </footer>
   );
 }
