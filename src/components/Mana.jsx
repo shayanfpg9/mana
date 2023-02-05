@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Header from "./Header/Header";
+import Footer from "./Footer/footer";
 
 export default class Mana extends Component {
   render() {
@@ -7,6 +8,7 @@ export default class Mana extends Component {
     return (
       <>
         <Header />
+        <Footer />
       </>
     );
   }
