@@ -21,10 +21,10 @@ export default function Menu(props) {
         </a>
       </li>
       <li className="header__menu-item fibo-2--sq">
-        <a href="#">
+        <button onClick={props.SearchBoxClick}>
           <i className="bi bi-binoculars-fill"></i>
           جست و جو
-        </a>
+        </button>
       </li>
     </menu>
   );
