@@ -15,3 +15,17 @@ body {
   background-color: map-get($colors, "main");
   @include flex();
 }
+
+.blur {
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
