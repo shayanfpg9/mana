@@ -208,6 +208,8 @@ $rad: 5rem;
   border-radius: $rad;
   transition: opacity 0.5s ease-in-out;
 
+  box-shadow: 0px 0px 15px rgba(map-get($colors, "second"), 0.8);
+
   &:not(.hide) {
     opacity: 1;
   }
@@ -284,6 +286,7 @@ $rad: 5rem;
       z-index: 1100;
 
       &::before {
+        color: map-get($colors, "second");
         font-size: var(--first-fibo);
       }
     }

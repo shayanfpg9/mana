@@ -25,6 +25,8 @@ body {
   width: 100vw;
   height: 100vh;
 
+  background-color: rgba(map-get($colors, "text"), 0.3);
+
   position: fixed;
   top: 0;
   left: 0;
