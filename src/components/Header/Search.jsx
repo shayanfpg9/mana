@@ -5,7 +5,6 @@ export default function Search(props) {
   useEffect(() => {
     if (props.open) {
       $(".searchbox").addEventListener("keyup", ({ code }) => {
-        console.log(code);
         if (code == "Escape") props.close();
       });
       $(".searchbox__input").focus();
