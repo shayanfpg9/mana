@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { GetBreak } from "../../js/functions.js";
 import Menu from "./Menu.jsx";
+import Search from "./Search.jsx";
 
 export default function Header() {
   const [width, setWidth] = useState(window?.innerWidth);
@@ -10,9 +11,17 @@ export default function Header() {
 
   const [status, setStatus] = useState(false);
 
-  const MenuBtnClick = ({ target }) => {
+  const MenuBtnClick = () => {
     if (status) setStatus(false);
     else setStatus(true);
+  };
+
+  const [searchBox, setSearchBox] = useState(false);
+  const SearchBoxClick = () => {
+    if (searchBox) setSearchBox(false);
+    else setSearchBox(true);
+
+    MenuBtnClick();
   };
 
   return (
@@ -27,7 +36,7 @@ export default function Header() {
         <h1 className="header__title">لیگ علمی مانا</h1>
 
         {width >= GetBreak("xl") ? (
-          <Menu></Menu>
+          <Menu SearchBoxClick={SearchBoxClick}></Menu>
         ) : (
           <button
             onClick={MenuBtnClick}
@@ -36,8 +45,19 @@ export default function Header() {
         )}
       </header>
 
+      <Search
+        open={searchBox}
+        close={() => {
+          setSearchBox(false);
+        }}
+      />
+
       {width < GetBreak("xl") ? (
-        <Menu status={status} function={MenuBtnClick} />
+        <Menu
+          SearchBoxClick={SearchBoxClick}
+          status={status && !searchBox}
+          function={MenuBtnClick}
+        />
       ) : (
         ""
       )}
