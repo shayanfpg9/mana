@@ -9,6 +9,11 @@
       font-size: calc(var(--first-fibo) / 5);
     }
   }
+
+  transition: opacity 0.5s ease-in-out;
+  &.hide {
+    opacity: 0;
+  }
 }
 
 body {
