@@ -1,13 +1,16 @@
-import { useEffect } from "react";
-import { $ } from "../../js/functions";
+import { createRef, useEffect } from "react";
 
 export default function Search(props) {
+  const searchbox = createRef(),
+    input = createRef();
+
   useEffect(() => {
     if (props.open) {
-      $(".searchbox").addEventListener("keyup", ({ code }) => {
+      searchbox.current.addEventListener("keyup", ({ code }) => {
         if (code === "Escape") props.close();
       });
-      $(".searchbox__input").focus();
+
+      input.current.focus();
     }
   });
 
@@ -22,12 +25,14 @@ export default function Search(props) {
       </div>
 
       <form
+        ref={searchbox}
         action={props.path}
         method="get"
         role="searchbox"
         className={"searchbox " + (!props.open ? "hide" : "")}
       >
         <input
+          ref={input}
           role="search"
           className="searchbox__input"
           type="text"
