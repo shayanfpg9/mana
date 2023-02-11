@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GetBreak } from "../../js/functions.js";
+import useSize from "../Hook/useSize.jsx";
 import Menu from "./Menu.jsx";
 import Search from "./Search.jsx";
 
@@ -35,7 +35,7 @@ export default function Header() {
         />
         <h1 className="header__title">لیگ علمی مانا</h1>
 
-        {width >= GetBreak("xl") ? (
+        {width >= useSize("xl") ? (
           <Menu SearchBoxClick={SearchBoxClick}></Menu>
         ) : (
           <button
@@ -52,7 +52,7 @@ export default function Header() {
         }}
       />
 
-      {width < GetBreak("xl") ? (
+      {width < useSize("xl") ? (
         <Menu
           SearchBoxClick={SearchBoxClick}
           status={status && !searchBox}
