@@ -1,8 +1,8 @@
-import { createRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Search(props) {
-  const searchbox = createRef(),
-    input = createRef();
+  const searchbox = useRef(),
+    input = useRef();
 
   useEffect(() => {
     if (props.open) {
