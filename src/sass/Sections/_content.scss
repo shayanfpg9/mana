@@ -1,0 +1,15 @@
+.parent {
+  width: 95vw;
+  min-height: 100vh;
+  height: auto;
+  margin: 1rem 0 {
+    bottom: calc(var(--first-fibo) + 1rem);
+  }
+
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+
+  border-radius: 2rem;
+  background-color: map-get($colors, "second");
+}
