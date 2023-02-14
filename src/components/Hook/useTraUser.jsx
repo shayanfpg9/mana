@@ -1,25 +1,34 @@
-export default function useTraUser(information) {
-  const user = {};
+import { useState } from "react";
 
-  switch (information) {
+export default function useTraUser(information) {
+  const [user, changeUser] = useState({});
+  let level = "";
+
+  switch (information.index + 1) {
     case 1:
-      user.level = "first";
+      level = "first";
       break;
 
     case 2:
-      user.level = "second";
+      level = "second";
       break;
 
     case 3:
-      user.level = "third";
+      level = "third";
       break;
 
     default:
-      user.level = "else";
+      level = "else";
       break;
   }
 
-  user.team = information.team;
-  user.image = information.image;
-  user.payment = information.payment * 1000;
+  changeUser({
+    index: information.index,
+    team: information.team,
+    level,
+    image: information.image,
+    payment: information.payment * 1000,
+  });
+
+  return [user , changeUser];
 }
