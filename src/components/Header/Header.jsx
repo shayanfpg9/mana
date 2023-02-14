@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useSize from "../Hook/useSize.jsx";
+import { useSize } from "../Hook/hooks.jsx";
 import Menu from "./Menu.jsx";
 import Search from "./Search.jsx";
 
