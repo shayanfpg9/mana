@@ -5,7 +5,7 @@ export default function User(props) {
 
   return (
     <div
-      className={`user ${info.level === "else" ? `user--${info.level}` : ""}`}
+      className={`user ${info.level !== "else" ? `user--${info.level}` : ""}`}
     >
       <span className="user__team">{info.team}</span>
       <img className="user__image" src={info.image} alt={info.team} />
