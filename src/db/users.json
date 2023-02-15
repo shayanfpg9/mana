@@ -1,0 +1,102 @@
+[
+  {
+    "team": "team-1",
+    "payment": 100,
+    "image": ""
+  },
+  {
+    "team": "team-2",
+    "payment": 50,
+    "image": ""
+  },
+  {
+    "team": "team-3",
+    "payment": 200,
+    "image": ""
+  },
+  {
+    "team": "team-4",
+    "payment": 20,
+    "image": ""
+  },
+  {
+    "team": "team-5",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-6",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-7",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-8",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-9",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-10",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-11",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-12",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-13",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-14",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-15",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-16",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-17",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-18",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-19",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-20",
+    "payment": 10,
+    "image": ""
+  }
+]
