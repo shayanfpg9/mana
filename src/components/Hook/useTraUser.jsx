@@ -1,8 +1,6 @@
-import { useState } from "react";
-
 export default function useTraUser(information) {
-  const [user, changeUser] = useState({});
-  let level = "";
+  let level = "",
+    aim = 0;
 
   switch (information.index + 1) {
     case 1:
@@ -22,13 +20,22 @@ export default function useTraUser(information) {
       break;
   }
 
-  changeUser({
+  if (information.payment >= 1000) {
+    aim = 10000;
+  } else if (information.payment >= 100 && information.payment < 1000) {
+    aim = 5000;
+  } else if (information.payment >= 10 && information.payment < 100) {
+    aim = 800;
+  } else {
+    aim = 200;
+  }
+
+  return {
     index: information.index,
     team: information.team,
     level,
     image: information.image,
     payment: information.payment * 1000,
-  });
-
-  return [user , changeUser];
+    aim: aim * 1000,
+  };
 }
