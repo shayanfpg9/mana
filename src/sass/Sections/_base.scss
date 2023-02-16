@@ -13,6 +13,7 @@
   transition: opacity 0.5s ease-in-out;
   &.hide {
     opacity: 0;
+    position: relative;
     z-index: -100 !important;
   }
 }
