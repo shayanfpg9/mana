@@ -1,7 +1,8 @@
 import useTraUser from "../Hook/useTraUser";
 
 export default function User(props) {
-  const info = useTraUser(props);
+  const info = useTraUser(props),
+    precent = (100 * info.payment) / info.aim;
 
   return (
     <div
@@ -13,9 +14,10 @@ export default function User(props) {
       </div>
       <div className="user__payment">
         <span
-          style={{ width: `${(100 * info.payment) / info.aim}%` }}
+          style={{ width: `${precent}%` }}
           className="user__payment--prog"
         ></span>
+        <span className="user__payment--amount">{info.payment} تومان</span>
       </div>
     </div>
   );
