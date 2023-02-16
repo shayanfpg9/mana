@@ -25,6 +25,10 @@
   --theme-color: #{map-get($colors, "main")};
   --multi-width: 10;
 
+  @include media("xs", "md") {
+    --multi-width: 6;
+  }
+
   width: calc(var(--first-fibo) * var(--multi-width));
   min-height: var(--first-fibo);
   padding: 0.5rem 0;
@@ -38,6 +42,10 @@
   position: relative;
   overflow: hidden;
 
+  @include media("xs", "sm") {
+    padding: 0.5rem;
+  }
+
   & + * {
     margin-top: 1rem;
   }
@@ -46,6 +54,10 @@
     &first {
       --multi-width: 11;
       --theme-color: #ffcd29;
+
+      @include media("xs", "md") {
+        --multi-width: 7;
+      }
 
       & > .user__image::after {
         background-image: url("../../images/medal-first.png");
@@ -82,6 +94,12 @@
     &image {
       width: var(--first-fibo);
       height: var(--first-fibo);
+
+      @include media("xs", "sm") {
+        width: calc(var(--first-fibo) * 2);
+        height: calc(var(--first-fibo) * 2);
+      }
+
       border-radius: 1rem;
       background: {
         color: var(--theme-color);
@@ -114,12 +132,24 @@
           position: absolute;
           bottom: calc(var(--first-fibo) / -4 + 1rem);
           right: calc(var(--first-fibo) / -4);
+
+          @include media("xs", "sm") {
+            width: calc(var(--first-fibo));
+            height: calc(var(--first-fibo));
+
+            bottom: calc(var(--first-fibo) / -2 + 1rem);
+            right: calc(var(--first-fibo) / -2);
+          }
         }
       }
     }
 
     &payment {
       width: 50vw;
+      @include media("sm", "md") {
+        width: 30vw;
+      }
+
       height: 1.5rem;
       border: 2px solid var(--theme-color) {
         radius: 2rem;
@@ -128,6 +158,21 @@
       top: 50%;
       transform: translateY(-50%);
       overflow: visible;
+
+      @include media("xs", "sm") {
+        width: 0vw;
+        border: none;
+
+        &-- {
+          &prog {
+            display: none;
+          }
+
+          &amount {
+            top: 0 !important;
+          }
+        }
+      }
 
       &-- {
         &prog {
