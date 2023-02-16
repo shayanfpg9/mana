@@ -3,6 +3,10 @@ import User from "./User";
 import json from "../../db/users.json";
 
 export default function Parent() {
+  json.sort((a, b) => {
+    return b.payment - a.payment;
+  });
+
   const [data, setData] = useState(json),
     els = data?.map((val, i) => {
       return <User key={`user-${i + 1}`} {...val} index={i} />;
