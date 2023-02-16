@@ -18,6 +18,11 @@
   }
 }
 
+html {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: map-get($colors, "main");
   @include flex();

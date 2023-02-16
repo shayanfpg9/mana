@@ -26,13 +26,13 @@ function scroll(elements) {
 
   window?.setTimeout(() => {
     const inter = window?.setInterval(() => {
-      if (i + 10 <= elements.length) {
-        elements[i + 5].scrollIntoView();
+      if (i + 6 <= elements.length) {
+        elements[i + 3].scrollIntoView();
         i++;
       } else {
         window?.clearInterval(inter);
         scroll(elements);
       }
-    }, 1000);
+    }, 5000);
   }, 10000);
 }
