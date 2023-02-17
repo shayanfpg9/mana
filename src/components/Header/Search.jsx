@@ -6,10 +6,15 @@ export default function Search(props) {
     input = useRef(),
     navigate = useNavigate();
 
+  const close = () => {
+    input.current.value = "";
+    props.close();
+  };
+
   useEffect(() => {
     if (props.open) {
       searchbox.current.addEventListener("keyup", ({ code }) => {
-        if (code === "Escape") props.close();
+        if (code === "Escape") close();
       });
 
       input.current.focus();
@@ -17,16 +22,16 @@ export default function Search(props) {
 
     searchbox.current.onsubmit = (ev) => {
       ev.preventDefault();
-      props.close();
       navigate(`/team/${input.current.value.replace(" ", "-")}`);
+      close();
     };
   });
 
   return (
     <>
-      <div onClick={props.close} className={props.open ? "blur" : "hide"}>
+      <div onClick={close} className={props.open ? "blur" : "hide"}>
         <button
-          onClick={props.close}
+          onClick={close}
           type="button"
           className="bi bi-x searchbox__close"
         ></button>
