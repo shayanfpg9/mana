@@ -9,7 +9,7 @@ export default class Mana extends Component {
     return (
       <>
         <Header />
-        <Parent />
+        <Parent api="./db/users.json" />
         <Footer />
       </>
     );
