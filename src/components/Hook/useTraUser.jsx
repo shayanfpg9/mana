@@ -30,6 +30,8 @@ export default function useTraUser(information) {
     aim = 200;
   }
 
+  if (information.payment > 10000) information.payment = 10000;
+
   return {
     index: information.index,
     team: information.team,
