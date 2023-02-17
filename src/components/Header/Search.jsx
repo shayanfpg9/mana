@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Search(props) {
   const searchbox = useRef(),
-    input = useRef();
+    input = useRef(),
+    navigate = useNavigate();
 
   useEffect(() => {
     if (props.open) {
@@ -12,6 +14,12 @@ export default function Search(props) {
 
       input.current.focus();
     }
+
+    searchbox.current.onsubmit = (ev) => {
+      ev.preventDefault();
+      props.close();
+      navigate(`/team/${input.current.value.replace(" ", "-")}`);
+    };
   });
 
   return (
@@ -26,7 +34,6 @@ export default function Search(props) {
 
       <form
         ref={searchbox}
-        action={props.path}
         method="get"
         role="searchbox"
         className={"searchbox " + (!props.open ? "hide" : "")}
