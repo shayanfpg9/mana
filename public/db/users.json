@@ -1,8 +1,8 @@
 [
   {
     "team": "team-1",
-    "payment": 100,
-    "image": ""
+    "payment": 10000,
+    "image": "https://friconix.com/png/fi-snsuxx-github.png"
   },
   {
     "team": "team-2",
@@ -16,12 +16,12 @@
   },
   {
     "team": "team-4",
-    "payment": 20,
+    "payment": 250,
     "image": ""
   },
   {
     "team": "team-5",
-    "payment": 10,
+    "payment": 4000,
     "image": ""
   },
   {
@@ -81,12 +81,12 @@
   },
   {
     "team": "team-17",
-    "payment": 10,
+    "payment": 1500,
     "image": ""
   },
   {
     "team": "team-18",
-    "payment": 10,
+    "payment": 5000,
     "image": ""
   },
   {
@@ -96,6 +96,11 @@
   },
   {
     "team": "team-20",
+    "payment": 10,
+    "image": ""
+  },
+  {
+    "team": "team-21",
     "payment": 10,
     "image": ""
   }
