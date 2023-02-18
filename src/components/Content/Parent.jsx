@@ -1,7 +1,7 @@
 import { useState } from "react";
 import User from "./User";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SearchResult from "./SearchResult";
 
 export default function Parent({ api }) {
@@ -48,7 +48,12 @@ export default function Parent({ api }) {
 
   if (search === undefined) {
     const els = data?.map((val, i) => {
-      return <User key={`user-${i + 1}`} {...val} index={i} />;
+      console.log(val.team.replace(" ","-"));
+      return (
+        <Link key={`user-${i + 1}`} to={`/team/${val.team.replace(" ","-")}`}>
+          <User {...val} index={i} />
+        </Link>
+      );
     });
 
     return <main className="parent">{els}</main>;
