@@ -1,18 +1,18 @@
 import { useState } from "react";
 import User from "./User";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import SearchResult from "./SearchResult";
 
 export default function Parent({ api }) {
-  const [data, setData] = useState(null),
-    els = data?.map((val, i) => {
-      return <User key={`user-${i + 1}`} {...val} index={i} />;
-    });
+  const search = useParams().team,
+    [data, setData] = useState(null);
 
-  axios
-    .get(api, {
-      timeout: 3000,
-    })
-    .then((res) => {
+  axios({
+    url: api,
+    method: "get",
+  }).then((res) => {
+    if (search === undefined) {
       if (data === null) {
         setData(res.data.sort(sort).slice(0, 20));
         scroll(document.querySelectorAll(".user"));
@@ -24,9 +24,41 @@ export default function Parent({ api }) {
           }
         });
       }
+    } else {
+      res.data.sort(sort);
+
+      let resIndex = 0;
+      const resVal = res.data.find((val, i) => {
+        const isResult =
+          val.team.replace("-", " ").toLowerCase() ===
+          search.replace("-", " ").toLowerCase();
+
+        if (isResult) resIndex = i;
+
+        return isResult;
+      });
+
+      setData({
+        index: resIndex,
+        all: res.data.length,
+        ...resVal,
+      });
+    }
+  });
+
+  if (search === undefined) {
+    const els = data?.map((val, i) => {
+      return <User key={`user-${i + 1}`} {...val} index={i} />;
     });
 
-  return <main className="parent">{els}</main>;
+    return <main className="parent">{els}</main>;
+  } else if (data !== null) {
+    return (
+      <main className="parent">
+        <SearchResult data={data} />
+      </main>
+    );
+  }
 }
 
 function scroll(elements, stop = 10000) {

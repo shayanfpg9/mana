@@ -1,6 +1,6 @@
 .parent {
   width: 95vw;
-  min-height: 100vh;
+  min-height: calc(99vh - var(--first-fibo) * 2);
   height: auto;
   margin: 1rem 0 {
     bottom: calc(var(--first-fibo) + 1rem);
@@ -190,5 +190,29 @@
         }
       }
     }
+  }
+}
+
+.search-result {
+  text-align: right;
+  background-color: #fff;
+  margin-top: 0;
+  padding: 1rem;
+  border: 5px solid map-get($colors, "main") {
+    radius: 2rem;
+    top: transparent;
+  }
+
+  @include flex();
+
+  > * {
+    display: block;
+    width: 100%;
+  }
+
+  .q {
+    color: map-get($colors, "main");
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
   }
 }
