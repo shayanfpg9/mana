@@ -4,6 +4,7 @@ import Footer from "./Footer/footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SearchResult from "./Content/SearchResult";
 import Competition from "./Content/Competition";
+import Err404 from "./Error/404";
 
 export default class Mana extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class Mana extends Component {
             path="/team/:team"
             element={<SearchResult api="./../db/users.json" />}
           />
+          <Route path="*" element={<Err404 />} />
         </Routes>
         <Footer />
       </Router>
