@@ -19,6 +19,10 @@
 
   @include flex();
   flex-direction: column;
+
+  * + * {
+    margin-top: 1rem;
+  }
 }
 
 .user {
@@ -44,10 +48,6 @@
 
   @include media("xs", "sm") {
     padding: 0.5rem;
-  }
-
-  & + * {
-    margin-top: 1rem;
   }
 
   &-- {
@@ -84,7 +84,7 @@
   &__ {
     &team {
       writing-mode: vertical-rl;
-      transform: rotateZ(180deg);
+      transform: rotateZ(180deg) translateY(-1rem);
 
       float: left;
       color: var(--theme-color);
