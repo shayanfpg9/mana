@@ -1,8 +1,9 @@
 import { Component } from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/footer";
-import Parent from "./Content/Parent";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SearchResult from "./Content/SearchResult";
+import Competition from "./Content/Competition";
 
 export default class Mana extends Component {
   render() {
@@ -11,10 +12,10 @@ export default class Mana extends Component {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Parent api="./db/users.json" />} />
+          <Route path="/" element={<Competition api="./db/users.json" />} />
           <Route
             path="/team/:team"
-            element={<Parent api="../../db/users.json" />}
+            element={<SearchResult api="./../db/users.json" />}
           />
         </Routes>
         <Footer />
