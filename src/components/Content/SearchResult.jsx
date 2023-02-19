@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Err404 from "../Error/404";
 import { sort } from "./Competition";
 import User from "./User";
 
@@ -10,30 +11,42 @@ export default function SearchResult({ api }) {
 
   document.querySelector("html").style.overflow = "hidden";
 
-  axios
-    .get(api)
-    .then((res) => {
-      res.data.sort(sort);
+  axios.get(api).then((res) => {
+    res.data.sort(sort);
 
-      let resIndex = 0;
-      const resVal = res.data.find((val, i) => {
-        const isResult =
-          val.team.replace("-", " ").toLowerCase() ===
-          search.replace("-", " ").toLowerCase();
+    let resIndex = 0;
+    const resVal = res.data.find((val, i) => {
+      const isResult =
+        val.team.replace("-", " ").toLowerCase() ===
+        search.replace("-", " ").toLowerCase();
 
-        if (isResult) resIndex = i;
+      if (isResult) resIndex = i;
 
-        return isResult;
-      });
+      return isResult;
+    });
 
+    if (resVal) {
       setData({
         index: resIndex,
         all: res.data.length,
         ...resVal,
       });
-    });
+    } else {
+      setData({
+        error: 404,
+      });
+    }
+  });
 
   if (data !== null) {
+    if (data?.error) {
+      return (
+        <main className="parent">
+          <Err404 />
+        </main>
+      );
+    }
+
     return (
       <main className="parent">
         <User {...data} />
@@ -53,7 +66,7 @@ export default function SearchResult({ api }) {
         </section>
       </main>
     );
-  }else{
-    return "loading..."
+  } else {
+    return "loading...";
   }
 }
