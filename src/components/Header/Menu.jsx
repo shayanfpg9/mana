@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Menu(props) {
   const left = props.status ? 0 : "calc(-1 * var(--menu-width))";
 
@@ -9,16 +11,16 @@ export default function Menu(props) {
       ></button>
 
       <li className="header__menu-item fibo-1--sq">
-        <a href="#">
+        <Link to="/">
           <i className="bi bi-house-fill"></i>
           خانه
-        </a>
+        </Link>
       </li>
       <li className="header__menu-item fibo-1--sq">
-        <a href="#">
+        <Link to="/dashboard">
           <i className="bi bi-speedometer"></i>
           داشبورد
-        </a>
+        </Link>
       </li>
       <li className="header__menu-item fibo-2--sq">
         <button onClick={props.SearchBoxClick}>
