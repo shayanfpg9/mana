@@ -203,6 +203,10 @@
     top: transparent;
   }
 
+  &--top-vis {
+    border-top: 5px solid map-get($colors, "main");
+  }
+
   @include flex();
 
   > * {
