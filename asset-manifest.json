@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/mana/static/css/main.a76257c3.css",
+    "main.js": "/mana/static/js/main.fedee8b2.js",
+    "static/js/787.446dbc22.chunk.js": "/mana/static/js/787.446dbc22.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/mana/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/mana/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "static/media/Vazirmatn-ExtraLight.woff2": "/mana/static/media/Vazirmatn-ExtraLight.901a97d34e331f269815.woff2",
+    "static/media/Vazirmatn-Light.woff2": "/mana/static/media/Vazirmatn-Light.a929468e39d61ead9a4a.woff2",
+    "static/media/Vazirmatn-Medium.woff2": "/mana/static/media/Vazirmatn-Medium.bc7d8f11b2c39fd0a880.woff2",
+    "static/media/Vazirmatn-ExtraBold.woff2": "/mana/static/media/Vazirmatn-ExtraBold.b130af771aa495b1ef8c.woff2",
+    "static/media/Vazirmatn-SemiBold.woff2": "/mana/static/media/Vazirmatn-SemiBold.b1912a963a6414094c08.woff2",
+    "static/media/Vazirmatn-Bold.woff2": "/mana/static/media/Vazirmatn-Bold.0d6a47ce8c185a9436b2.woff2",
+    "static/media/Vazirmatn-Thin.woff2": "/mana/static/media/Vazirmatn-Thin.7128634a83fa3eece1bf.woff2",
+    "static/media/Vazirmatn-Regular.woff2": "/mana/static/media/Vazirmatn-Regular.58c84f666915410c0ba8.woff2",
+    "static/media/Vazirmatn-Black.woff2": "/mana/static/media/Vazirmatn-Black.aa14df29ec50d5e9c2c9.woff2",
+    "index.html": "/mana/index.html",
+    "main.a76257c3.css.map": "/mana/static/css/main.a76257c3.css.map",
+    "main.fedee8b2.js.map": "/mana/static/js/main.fedee8b2.js.map",
+    "787.446dbc22.chunk.js.map": "/mana/static/js/787.446dbc22.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a76257c3.css",
+    "static/js/main.fedee8b2.js"
+  ]
+}

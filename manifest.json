@@ -1,0 +1,9 @@
+{
+  "short_name": "مانا",
+  "name": "لیگ علمی مانا",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#F4A261",
+  "background_color": "#F4A261"
+}
