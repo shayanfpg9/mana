@@ -1,12 +1,12 @@
 [
   {
     "team": "team-1",
-    "payment": 1000,
+    "payment": 10000,
     "image": "https://friconix.com/png/fi-snsuxx-github.png"
   },
   {
     "team": "team-2",
-    "payment": 200,
+    "payment": 50,
     "image": ""
   },
   {
@@ -16,12 +16,12 @@
   },
   {
     "team": "team-4",
-    "payment": 2000,
+    "payment": 250,
     "image": ""
   },
   {
     "team": "team-5",
-    "payment": 400,
+    "payment": 4000,
     "image": ""
   },
   {
@@ -100,8 +100,8 @@
     "image": ""
   },
   {
-    "team": "تیم فارسی",
-    "payment": 100,
+    "team": "team-21",
+    "payment": 10,
     "image": ""
   }
 ]
