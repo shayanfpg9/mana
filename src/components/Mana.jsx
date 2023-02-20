@@ -11,7 +11,7 @@ export default class Mana extends Component {
   render() {
     document.body.classList.add("light");
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Header />
         <Routes>
           <Route path="/" element={<Competition api="./db/users.json" />} />
