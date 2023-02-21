@@ -36,7 +36,7 @@ export default function Competition() {
   return <main className="parent">{els}</main>;
 }
 
-function scroll(elements, stop = 10000) {
+function scroll(elements, stop = 5000) {
   window?.scroll(0, 0);
 
   let ComponentH = 0;
