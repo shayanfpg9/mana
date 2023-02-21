@@ -34,7 +34,7 @@ export default function SearchResult() {
       if (resVal) {
         setData({
           index: resIndex,
-          all: data.length,
+          all: CtxVal.length,
           ...resVal,
         });
       } else {
