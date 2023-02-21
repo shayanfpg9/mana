@@ -15,8 +15,10 @@ export default function Mana() {
 
   axios
     .get(
-      new URL("/db/users.json", window.location.origin + process.env.PUBLIC_URL)
-        .href
+      new URL(
+        process.env.PUBLIC_URL + "/db/users.json",
+        window.location.origin
+      ).href
     )
     .then((res) => {
       res.data.sort(sort);
