@@ -6,13 +6,19 @@ import User from "./User";
 
 let time = 0;
 export default function SearchResult() {
-  const search = useParams().team,
+  const [search, setSearch] = useState(""),
     [data, setData] = useState([]),
-    CtxVal = useContext(DataContext);
+    CtxVal = useContext(DataContext),
+    SearchParam = useParams().team;
 
   document.querySelector("html").style.overflow = "hidden";
 
   useEffect(() => {
+    if (search !== SearchParam) {
+      time = 0;
+      setSearch(SearchParam);
+    }
+
     if (time <= 5) {
       let resIndex = 0;
       const resVal = CtxVal.find((val, i) => {
@@ -39,7 +45,7 @@ export default function SearchResult() {
 
       time++;
     }
-  }, [CtxVal, search, data.length]);
+  }, [CtxVal, search, data.length, SearchParam]);
 
   if (data?.error) {
     return (
