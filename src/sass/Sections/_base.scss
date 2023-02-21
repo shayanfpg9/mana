@@ -21,6 +21,10 @@
 html {
   overflow: hidden;
   scroll-behavior: smooth;
+
+  @include media("xs", 430, height) {
+    overflow: visible !important;
+  }
 }
 
 body {
