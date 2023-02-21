@@ -1,27 +1,25 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import User from "./User";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { DataContext, equal } from "../Mana";
 
-export default function Competition({ api }) {
-  const [data, setData] = useState(null);
+export default function Competition() {
+  const [data, setData] = useState([]);
+  const CtxVal = useContext(DataContext);
 
-  axios({
-    url: api,
-    method: "get",
-  }).then((res) => {
-    if (data === null) {
-      setData(res.data.sort(sort).slice(0, 20));
+  useEffect(() => {
+    if (equal(data, []) && CtxVal) {
+      setData(CtxVal.slice(0, 20));
       scroll(document.querySelectorAll(".user"));
-    } else if (!equal(res.data, data)) {
-      setData(res.data.sort(sort).slice(0, 20));
-      res.data.forEach((obj, i) => {
+    } else if (!equal(CtxVal.slice(0, 20), data)) {
+      setData(CtxVal.slice(0, 20));
+      CtxVal.forEach((obj, i) => {
         if (!equal(obj, data[i])) {
           document.querySelectorAll(".user")[i]?.scrollIntoView();
         }
       });
     }
-  });
+  }, [data, CtxVal]);
 
   const els = data?.map((val, i) => {
     return (
@@ -61,15 +59,4 @@ function scroll(elements, stop = 10000) {
       }
     }, 5000);
   }, stop);
-}
-
-export function sort(a, b) {
-  return b.payment - a.payment;
-}
-
-function equal(a, b) {
-  a = JSON.stringify(a);
-  b = JSON.stringify(b);
-
-  return a === b;
 }

@@ -1,24 +1,22 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { sort } from "../Content/Competition";
+import { DataContext , equal } from "../Mana";
 
-export default function Dashboard({ api }) {
+export default function Dashboard() {
   const [info, setInfo] = useState({});
+  const CtxVal = useContext(DataContext);
 
   useEffect(() => {
-    axios.get(api).then((res) => {
-      res.data.sort(sort);
-
+    if (!equal(CtxVal, []) && Array.isArray(CtxVal)) {
       setInfo({
-        length: res.data.length,
-        min: res.data[res.data.length - 1].payment * 1000,
-        max: res.data[0].payment * 1000,
+        length: CtxVal.length,
+        min: CtxVal.at(CtxVal.length - 1)?.payment * 1000,
+        max: CtxVal.at(0).payment * 1000,
         FirstTeamName:
-          res.data[0].team[0].toUpperCase() + res.data[0].team.substr(1),
+          CtxVal.at(0).team.at(0).toUpperCase() + CtxVal.at(0).team.substr(1),
       });
-    });
-  });
+    }
+  }, [CtxVal]);
 
   return (
     <main className="parent">
@@ -30,12 +28,12 @@ export default function Dashboard({ api }) {
 
         <span>
           <span className="q">درآمد تیم اول:</span>
-          {info?.min} تومان
+          {info?.max} تومان
         </span>
 
         <span>
           <span className="q">درآمد تیم آخر:</span>
-          {info?.max} تومان
+          {info?.min} تومان
         </span>
 
         <span>

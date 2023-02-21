@@ -1,21 +1,18 @@
-import axios from "axios";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Err404 from "../Error/404";
-import { sort } from "./Competition";
+import { DataContext } from "../Mana";
 import User from "./User";
 
-export default function SearchResult({ api }) {
+export default function SearchResult() {
   const search = useParams().team,
-    [data, setData] = useState(null);
+    [data, setData] = useState(useContext(DataContext));
 
   document.querySelector("html").style.overflow = "hidden";
 
-  axios.get(api).then((res) => {
-    res.data.sort(sort);
-
+  useEffect(() => {
     let resIndex = 0;
-    const resVal = res.data.find((val, i) => {
+    const resVal = data.find((val, i) => {
       const isResult =
         val.team.replace("-", " ").toLowerCase() ===
         search.replace("-", " ").toLowerCase();
@@ -28,7 +25,7 @@ export default function SearchResult({ api }) {
     if (resVal) {
       setData({
         index: resIndex,
-        all: res.data.length,
+        all: data.length,
         ...resVal,
       });
     } else {
