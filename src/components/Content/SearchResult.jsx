@@ -6,13 +6,14 @@ import User from "./User";
 
 export default function SearchResult() {
   const search = useParams().team,
-    [data, setData] = useState(useContext(DataContext));
+    [data, setData] = useState([]),
+    CtxVal = useContext(DataContext);
 
   document.querySelector("html").style.overflow = "hidden";
 
   useEffect(() => {
     let resIndex = 0;
-    const resVal = data.find((val, i) => {
+    const resVal = CtxVal.find((val, i) => {
       const isResult =
         val.team.replace("-", " ").toLowerCase() ===
         search.replace("-", " ").toLowerCase();
@@ -33,37 +34,33 @@ export default function SearchResult() {
         error: 404,
       });
     }
-  });
+  }, [CtxVal, search, data.length]);
 
-  if (data !== null) {
-    if (data?.error) {
-      return (
-        <main className="parent">
-          <Err404 />
-        </main>
-      );
-    }
-
+  if (data?.error) {
     return (
       <main className="parent">
-        <User {...data} />
-        <section className="search-result">
-          <span>
-            <span className="q">نام تیم:</span>
-            {data.team}
-          </span>
-          <span>
-            <span className="q">میزان درآمد:</span>
-            {data.payment * 1000} تومان
-          </span>
-          <span>
-            <span className="q">رتبه:</span>
-            {data.index + 1} از {data.all} تیم
-          </span>
-        </section>
+        <Err404 />
       </main>
     );
-  } else {
-    return "loading...";
   }
+
+  return (
+    <main className="parent">
+      <User {...data} />
+      <section className="search-result">
+        <span>
+          <span className="q">نام تیم:</span>
+          {data.team}
+        </span>
+        <span>
+          <span className="q">میزان درآمد:</span>
+          {data.payment * 1000} تومان
+        </span>
+        <span>
+          <span className="q">رتبه:</span>
+          {data.index + 1} از {data.all} تیم
+        </span>
+      </section>
+    </main>
+  );
 }
