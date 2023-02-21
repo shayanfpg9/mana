@@ -22,13 +22,6 @@ export default function Competition() {
 
     if (equal(data, []) && CtxVal) {
       setData(CtxVal.slice(0, 20));
-    } else if (!equal(CtxVal.slice(0, 20), data)) {
-      setData(CtxVal.slice(0, 20));
-      CtxVal.forEach((obj, i) => {
-        if (!equal(obj, data[i])) {
-          document.querySelectorAll(".user")[i]?.scrollIntoView();
-        }
-      });
     }
   }, [data, CtxVal]);
 
