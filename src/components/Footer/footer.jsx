@@ -25,7 +25,7 @@ export default function Footer() {
       <i ref={ heart } onClick={heartClick} className="bi bi-heart footer__icon--heart"></i>
       <i className="bi bi-cup-hot-fill footer__icon--cup"></i>
 
-      <Contact link="" />
+      <Contact link="mailto:shayanfpg9@duck.com" />
     </footer>
   );
 }
