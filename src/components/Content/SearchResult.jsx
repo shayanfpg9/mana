@@ -4,6 +4,7 @@ import Err404 from "../Error/404";
 import { DataContext } from "../Mana";
 import User from "./User";
 
+let time = 0;
 export default function SearchResult() {
   const search = useParams().team,
     [data, setData] = useState([]),
@@ -12,27 +13,31 @@ export default function SearchResult() {
   document.querySelector("html").style.overflow = "hidden";
 
   useEffect(() => {
-    let resIndex = 0;
-    const resVal = CtxVal.find((val, i) => {
-      const isResult =
-        val.team.replace("-", " ").toLowerCase() ===
-        search.replace("-", " ").toLowerCase();
+    if (time <= 5) {
+      let resIndex = 0;
+      const resVal = CtxVal.find((val, i) => {
+        const isResult =
+          val.team.replace("-", " ").toLowerCase() ===
+          search.replace("-", " ").toLowerCase();
 
-      if (isResult) resIndex = i;
+        if (isResult) resIndex = i;
 
-      return isResult;
-    });
-
-    if (resVal) {
-      setData({
-        index: resIndex,
-        all: data.length,
-        ...resVal,
+        return isResult;
       });
-    } else {
-      setData({
-        error: 404,
-      });
+
+      if (resVal) {
+        setData({
+          index: resIndex,
+          all: data.length,
+          ...resVal,
+        });
+      } else {
+        setData({
+          error: 404,
+        });
+      }
+
+      time++;
     }
   }, [CtxVal, search, data.length]);
 
