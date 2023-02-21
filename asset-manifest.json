@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mana/static/css/main.f28ab5a1.css",
-    "main.js": "/mana/static/js/main.e2fcb8af.js",
+    "main.css": "/mana/static/css/main.7a66fe2f.css",
+    "main.js": "/mana/static/js/main.40930190.js",
     "static/js/787.446dbc22.chunk.js": "/mana/static/js/787.446dbc22.chunk.js",
     "static/media/bootstrap-icons.woff?": "/mana/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
     "static/media/bootstrap-icons.woff2?": "/mana/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
@@ -15,12 +15,12 @@
     "static/media/Vazirmatn-Regular.woff2": "/mana/static/media/Vazirmatn-Regular.58c84f666915410c0ba8.woff2",
     "static/media/Vazirmatn-Black.woff2": "/mana/static/media/Vazirmatn-Black.aa14df29ec50d5e9c2c9.woff2",
     "index.html": "/mana/index.html",
-    "main.f28ab5a1.css.map": "/mana/static/css/main.f28ab5a1.css.map",
-    "main.e2fcb8af.js.map": "/mana/static/js/main.e2fcb8af.js.map",
+    "main.7a66fe2f.css.map": "/mana/static/css/main.7a66fe2f.css.map",
+    "main.40930190.js.map": "/mana/static/js/main.40930190.js.map",
     "787.446dbc22.chunk.js.map": "/mana/static/js/787.446dbc22.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f28ab5a1.css",
-    "static/js/main.e2fcb8af.js"
+    "static/css/main.7a66fe2f.css",
+    "static/js/main.40930190.js"
   ]
 }
