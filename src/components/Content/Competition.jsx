@@ -3,14 +3,25 @@ import User from "./User";
 import { Link } from "react-router-dom";
 import { DataContext, equal } from "../Mana";
 
+let runScroll = () => {
+  scroll(document.querySelectorAll(".user"));
+  runScroll = undefined;
+};
+
 export default function Competition() {
-  const [data, setData] = useState([]);
-  const CtxVal = useContext(DataContext);
+  const [data, setData] = useState([]),
+    CtxVal = useContext(DataContext);
 
   useEffect(() => {
+    if (
+      document.querySelectorAll(".user").length > 0 &&
+      typeof runScroll === "function"
+    ) {
+      runScroll();
+    }
+
     if (equal(data, []) && CtxVal) {
       setData(CtxVal.slice(0, 20));
-      scroll(document.querySelectorAll(".user"));
     } else if (!equal(CtxVal.slice(0, 20), data)) {
       setData(CtxVal.slice(0, 20));
       CtxVal.forEach((obj, i) => {
